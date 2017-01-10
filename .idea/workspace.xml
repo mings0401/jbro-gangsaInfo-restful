@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d78c814-a96d-4873-bdc9-9053c80b32c4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queries/queries.js" afterPath="$PROJECT_DIR$/queries/queries.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/controller.js" afterPath="$PROJECT_DIR$/routes/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/service.js" afterPath="$PROJECT_DIR$/service/service.js" />
     </list>
     <ignored path="jbro-gangsaInfo-restful.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +47,8 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="97" column="3" selection-start-line="97" selection-start-column="3" selection-end-line="97" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -59,8 +57,8 @@
       <file leaf-file-name="service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="402">
+              <caret line="123" column="44" selection-start-line="121" selection-start-column="12" selection-end-line="123" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -356,7 +354,7 @@
       <updated>1484045930560</updated>
       <workItem from="1484045932388" duration="4969000" />
       <workItem from="1484050937244" duration="4685000" />
-      <workItem from="1484059297329" duration="3565000" />
+      <workItem from="1484059297329" duration="4263000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1484051011101</created>
@@ -393,11 +391,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484059509346</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="login members list가져오는 거 완료">
+      <created>1484067307461</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1484067307461</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13219000" />
+    <option name="totallyTimeSpent" value="13917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -447,7 +452,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="where" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="login members list가져오는 거 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="login members list가져오는 거 완료" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -656,16 +662,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        <state relative-caret-position="402">
+          <caret line="123" column="44" selection-start-line="121" selection-start-column="12" selection-end-line="123" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="97" column="3" selection-start-line="97" selection-start-column="3" selection-end-line="97" selection-end-column="3" />
           <folding />
         </state>
       </provider>

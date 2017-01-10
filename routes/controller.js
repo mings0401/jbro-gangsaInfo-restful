@@ -80,11 +80,19 @@ router.post('/api/login', function (req, res, next) {
     id : req.param('id'), // 아이디
     password : req.param('password') // 비밀번호
   };
-  service.selectCountMembers(params, function (successJson) {
-    res.status(200).json(successJson);
-  }, function (errorJson) {
-    res.status(500).json(errorJson);
-  })
+  if(params.id == undefined || params.password == undefined){
+    res.status(200).json({
+      status: 'success',
+      isLogin: false,
+      message: 'Retrieved ALL actions'
+    });
+  }else{
+    service.selectCountMembers(params, function (successJson) {
+      res.status(200).json(successJson);
+    }, function (errorJson) {
+      res.status(500).json(errorJson);
+    })
+  }
 });
 
 /**

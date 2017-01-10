@@ -14,7 +14,9 @@ module.exports = {
     selectUsers : selectUsers,
     selectMembers : selectMembers,
     selectCountMembers : selectCountMembers,
-    deleteMember : deleteMember
+    deleteMember : deleteMember,
+    insertMember : insertMember,
+    updateMember : updateMember 
 };
 
 function selectUsers(params, successCallback, errorCallback) {
@@ -93,6 +95,12 @@ function selectMembers(params, successCallback, errorCallback) {
     })
 }
 
+/**
+ * member를 삭제하는 것
+ * @param params
+ * @param successCallback
+ * @param errorCallback
+ */
 function deleteMember(params, successCallback, errorCallback) {
     var searchArray = [];
     $.each(params, function (key, value) {
@@ -112,7 +120,7 @@ function deleteMember(params, successCallback, errorCallback) {
         if(searchArray.length-1 != i) whereString += ' AND ';
     }
 
-    commonDAO.deleteQuery(query.deleteMeber + whereString, {}, function (result) {
+    commonDAO.deleteQuery(query.deleteMember + whereString, {}, function (result) {
         successCallback({
             status: 'success',
             message: 'Retrieved ALL actions'
@@ -127,11 +135,18 @@ function deleteMember(params, successCallback, errorCallback) {
     })
 }
 
+/**
+ * 로그인하기 위해서 비밀번호와 아이디로 일치하는게 있는지 보는 함수
+ * @param params
+ * @param successCallback
+ * @param errorCallback
+ */
 function selectCountMembers(params, successCallback, errorCallback) {
     var searchArray = [];
     $.each(params, function (key, value) {
         if(value != "" && value != undefined && value != null) {
-            searchArray.push(key +" = '" + value + "'");
+            if(key == "id" || key == "password")
+                searchArray.push(key +" = '" + value + "'");
         }
     });
 
@@ -156,6 +171,58 @@ function selectCountMembers(params, successCallback, errorCallback) {
         successCallback({
             status: 'success',
             isLogin: result,
+            message: 'Retrieved ALL actions'
+        });
+
+    }, function (err) {
+        errorCallback({
+            status: 'Error',
+            message: err.message
+        });
+
+    })
+}
+
+function insertMember(params, successCallback, errorCallback) {
+    var fieldArray = [], valueArray = [];
+    $.each(params, function (key, value) {
+        if(value != "" && value != undefined && value != null) {
+            valueArray.push("'" + value + "'");
+        }else{
+            valueArray.push("''");
+        }
+    });
+    var insertQuery = 'INSERT INTO illestscat.members VALUES ('+ valueArray.join(',') +')';
+    console.log("insertQuery", insertQuery);
+    commonDAO.insertQuery(insertQuery, {}, function (result) {
+        successCallback({
+            status: 'success',
+            message: 'Retrieved ALL actions'
+        });
+
+    }, function (err) {
+        errorCallback({
+            status: 'Error',
+            message: err.message
+        });
+
+    })
+}
+
+function updateMember(params, successCallback, errorCallback) {
+    var whereArray = [], setArray = [];
+    $.each(params, function (key, value) {
+        if(key == 'id' || key == 'password'){
+            whereArray.push(key + "='" + value + "'");
+        }else{
+            setArray.push(key + "='" + value + "'");
+        }
+    });
+    var updateQuery = 'UPDATE SET '+ setArray.join(',') +' WHERE ' + whereArray.join(' AND ');
+    console.log("updateQuery", updateQuery);
+    commonDAO.updateQuery(updateQuery, {}, function (result) {
+        successCallback({
+            status: 'success',
             message: 'Retrieved ALL actions'
         });
 

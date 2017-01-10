@@ -44,7 +44,7 @@ var CommonDAO = function () {
         });
     };
 
-    this.createQuery = function (query, params, successCallback, errorCallback) {
+    this.insertQuery = function (query, params, successCallback, errorCallback) {
         dbConnection.query(query, params, { metadata: true }, function(err, data) {
             if (err){
                 errorCallback(err);

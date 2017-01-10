@@ -11,37 +11,9 @@ var $ = require('jquery')(window);
 
 // private -> public
 module.exports = {
-    selectUsers : selectUsers
+    selectUsers : selectUsers,
+    selectNoticeBoardJson : selectNoticeBoardJson
 };
-
-function insertCompany() {
-    
-}
-
-function selectCompanyJson() {
-    
-}
-
-function updateCompany() {
-    
-}
-
-
-function insertProgram() {
-    
-}
-
-function updateProgram() {
-    
-}
-
-function deleteProgram() {
-    
-}
-
-function selectProgramJson() {
-    
-}
 
 function selectUsers(params, successCallback, errorCallback) {
     var searchArray = [];
@@ -63,6 +35,44 @@ function selectUsers(params, successCallback, errorCallback) {
     }
 
     commonDAO.selectQuery(query.selectUserList + whereString, {}, function (result) {
+        successCallback({
+            status: 'success',
+            data: result,
+            message: 'Retrieved ALL actions'
+        });
+
+    }, function (err) {
+        errorCallback({
+            status: 'Error',
+            message: err.message
+        });
+
+    })
+}
+
+
+function selectNoticeBoardJson(params, successCallback, errorCallback) {
+    var whereArray = [];
+    for(var i in params) {
+        if(params[i] != '' && params[i] != undefined && params[i] != null) {
+            whereArray.push((i + " = '" + params[i]) + "'");
+        }
+    }
+
+    var whereString = '';
+
+    for(var i in whereArray) {
+        if(i == 0) {
+            whereString += " WHERE";
+        }
+
+        whereString += " " + whereArray[i];
+
+        if(whereArray.length - 1 != i)
+            whereString += ' AND ';
+    }
+
+    commonDAO.selectQuery(query.selectNoticeBoard + whereString, {}, function (result) {
         successCallback({
             status: 'success',
             data: result,

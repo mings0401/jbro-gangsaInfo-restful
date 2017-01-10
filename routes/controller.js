@@ -17,9 +17,27 @@ router.get('/api/users', function (req, res, next) {
     email : req.param('email'),
     name : req.param('name')
   };
+
   service.selectUsers(params, function (successJson) {
     res.status(200).json(successJson);
   }, function (errorJson) {
     res.status(500).json(errorJson);
+  })
+});
+
+/**
+ * get notice_board
+ */
+router.get('/api/notice_board', function (req, res, next) {
+  var params = {
+    number : req.param('number'),
+    title : req.param('title'),
+    contents : req.param('contents')
+  };
+
+  service.selectNoticeBoardJson(params, function (successCallback) {
+    res.status(200).json(successJson);
+  }, function (errorJson) {
+    res.statusCode(500).json(errorJson);
   })
 });

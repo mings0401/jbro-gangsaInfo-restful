@@ -1,11 +1,11 @@
 var mariaSql = require('mariasql');
 conn = new mariaSql();
 conn.connect({
-    host : 'illestscat.cafe24.com'
-    , port : '3307'
-    , user : 'illestscat'
-    , password : 'dlcjfdyd!'
-    , database : 'illestscat'
+    host : 'localhost'
+    , port : '3306'
+    , user : 'david'
+    , password : 'david'
+    , database : 'gangsainfo'
 });
 
 // DB를 연결합니다.

@@ -13,7 +13,8 @@ var $ = require('jquery')(window);
 module.exports = {
     selectUsers : selectUsers,
     selectMembers : selectMembers,
-    selectCountMembers : selectCountMembers
+    selectCountMembers : selectCountMembers,
+    deleteMember : deleteMember
 };
 
 function selectUsers(params, successCallback, errorCallback) {
@@ -80,6 +81,40 @@ function selectMembers(params, successCallback, errorCallback) {
         successCallback({
             status: 'success',
             data: result,
+            message: 'Retrieved ALL actions'
+        });
+
+    }, function (err) {
+        errorCallback({
+            status: 'Error',
+            message: err.message
+        });
+
+    })
+}
+
+function deleteMember(params, successCallback, errorCallback) {
+    var searchArray = [];
+    $.each(params, function (key, value) {
+        if(value != "" && value != undefined && value != null) {
+            searchArray.push(key +" = '" + value + "'");
+        }
+    });
+
+    var whereString = "";
+
+    for(var i in searchArray){
+        if(i == 0){
+            whereString += " WHERE";
+        }
+        whereString += " "+searchArray[i];
+
+        if(searchArray.length-1 != i) whereString += ' AND ';
+    }
+
+    commonDAO.deleteQuery(query.deleteMeber + whereString, {}, function (result) {
+        successCallback({
+            status: 'success',
             message: 'Retrieved ALL actions'
         });
 

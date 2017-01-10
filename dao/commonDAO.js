@@ -22,6 +22,7 @@ var CommonDAO = function () {
     };
 
     this.deleteQuery = function (query, params, successCallback, errorCallback) {
+        console.log("query", query);
         dbConnection.query(query, params, { metadata: true }, function(err, data) {
             if (err){
                 errorCallback(err);

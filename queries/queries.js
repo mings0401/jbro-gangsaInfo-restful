@@ -12,5 +12,6 @@ var Queries = function () {
     // Matthew Start
     this.selectMeberLists = 'SELECT ID, EMAIL, NAME, PHONE, INTERESTS, ISSTUDENT, POSITION, BELONG, LOCATION, DIVISION FROM illestscat.members';
     this.selectCountMebers = 'SELECT COUNT(*) FROM illestscat.members';
+    this.deleteMeber = 'DELETE FROM illestscat.members';
     // Matthew End
 };

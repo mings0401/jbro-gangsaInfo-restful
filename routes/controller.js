@@ -72,6 +72,25 @@ router.post('/api/members', function (req, res, next) {
   })
 });
 
+router.delete('/api/members', function (req, res, next) {
+  var params = {
+    id : req.param('id'), // 아이디
+    password : req.param('password') // 비밀번호
+  };
+  if(params.id == undefined || params.password == undefined){
+    res.status(404).json({
+      status: 'err',
+      message: 'Not find Information.'
+    });
+  }else{
+    service.deleteMember(params, function (successJson) {
+      res.status(200).json(successJson);
+    }, function (errorJson) {
+      res.status(500).json(errorJson);
+    })
+  }
+});
+
 /**
  * post로 login check
  */
